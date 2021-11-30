@@ -1,0 +1,15 @@
+{
+  "name": "Orichalcum-proyecto-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kevcifu/Orichalcum-proyecto-back.git",
+  "author": "kevcifu <kevin.cifuentes@medellin.edu.co>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.14"
+  }
+}
