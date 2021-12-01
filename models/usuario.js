@@ -5,6 +5,14 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
+        validate: {
+            validator: function (correo) {
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+                    correo
+                );
+            },
+            message: '¡no es un correo valido!',
+        },
     },
     identificacion: {
         type: String,
@@ -31,6 +39,6 @@ const userSchema = new Schema({
     },
 });
 
-const UserModel = model('User', userSchema);
+const UserModel = model('usuario', userSchema);
 
 module.exports = { UserModel };
