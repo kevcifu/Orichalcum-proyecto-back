@@ -1,6 +1,8 @@
-const { ProjectsModel } = require('./models/proyectos');
-const { UserModel } = require('./models/usuario');
-const conectarBD = require('./db/db');
+const express = require('express')
+const mongoose = require('mongoose')
+const { ProjectsModel } = require('../src/models/proyectos');
+const { UserModel } = require('../src/models/usuario');
+const conectarBD = require('../db/db');
 
 const main = async () => {
     await conectarBD();
