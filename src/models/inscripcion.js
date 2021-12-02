@@ -2,14 +2,14 @@ const {Schema, model} = require('mongoose')
 const {UserModel} = require('../models/usuario')
 const {ProjectsModel} = require('../models/proyectos')
 
-const incriptionSchema = new Schema({
+const IncriptionSchema = new Schema({
     proyecto: {
         type: Schema.Types.ObjectId,
         ref: ProjectsModel,
         require: true
     },
 
-    idEstudiante: {
+    estudiante: {
         type: Schema.Types.ObjectId,
         ref: UserModel,
         require: true 
@@ -28,7 +28,7 @@ const incriptionSchema = new Schema({
 
     fechaEgreso: {
         type: Date,
-        require: true
+        require: false
     }
 });
 
