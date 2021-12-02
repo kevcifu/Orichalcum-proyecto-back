@@ -1,8 +1,7 @@
-const {Schema, model} = require('mongoose')
-const {UserModel} = require('../models/usuario')
-const {ProjectsModel} = require('../models/proyectos')
-
-const IncriptionSchema = new Schema({
+const { Schema, model } = require('mongoose')
+const { UserModel } = require('../models/usuario')
+const { ProjectsModel } = require('../models/proyectos')
+const incriptionSchema = new Schema({
     proyecto: {
         type: Schema.Types.ObjectId,
         ref: ProjectsModel,
@@ -32,5 +31,5 @@ const IncriptionSchema = new Schema({
     }
 });
 
-const InscriptionModel = model('inscripcion', InscriptionSchema);
-module.exports ={InscriptionModel};
+const InscriptionModel = model('inscripcion', inscriptionSchema);
+module.exports ={ InscriptionModel };

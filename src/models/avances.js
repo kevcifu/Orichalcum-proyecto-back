@@ -1,7 +1,6 @@
-const {Schema, model} = require('mongoose')
-const {ProjectModel} = require('../models/proyectos')
-
-const AvanceSchema = new Schema({
+const { Schema, model } = require('mongoose')
+const { ProjectsModel } = require('../models/proyectos')
+const advanceSchema = new Schema({
     proyecto: {
         type: Schema.Types.ObjectId,
         ref: ProjectsModel,
@@ -25,5 +24,5 @@ const AvanceSchema = new Schema({
     }
 });
 
-const AdvanceModel = model('avance', AvanceSchema);
-module.exports ={AdvanceModel};
+const AdvanceModel = model('avance', advanceSchema);
+module.exports ={ AdvanceModel };
