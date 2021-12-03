@@ -24,7 +24,7 @@ const projectsSchema = new Schema({
     },
     fechaFinal: {
         type: Date,
-        required: true,
+        required: false,
     },
     estado: {
         type: String,
