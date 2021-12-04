@@ -1,10 +1,10 @@
-const { Schema, model } = require('mongoose')
-const { UserModel } = require('../models/usuario')
-const { ProjectsModel } = require('../models/proyectos')
-const incriptionSchema = new Schema({
+const { Schema, model } = require('mongoose');
+const { UserModel } = require('../usuario/usuario');
+const { ProjectModel } = require('../proyecto/proyecto');
+const inscriptionSchema = new Schema({
     proyecto: {
         type: Schema.Types.ObjectId,
-        ref: ProjectsModel,
+        ref: ProjectModel,
         require: true
     },
 
@@ -20,7 +20,7 @@ const incriptionSchema = new Schema({
         default: 'NULO'
     },
     
-    fechaIncripcion: {
+    fechaInscripcion: {
         type: Date,
         require: true,
     },
