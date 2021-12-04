@@ -1,9 +1,8 @@
-const { connect } = require('mongoose');
+import mongoose from 'mongoose';
+const { connect } = mongoose;
 
 const conectarBD = async () => {
-    return await connect(
-        'mongodb+srv://OrichalcumSoftware:OrichalcumSoftware123*@gestionproyectosinvesti.7p3b4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-    )
+    return await connect(process.env.DB_URL)
         .then(() => {
             console.log('Conexion exitosa');
         })
@@ -12,4 +11,4 @@ const conectarBD = async () => {
         });
 };
 
-module.exports = conectarBD;
+export { conectarBD };
