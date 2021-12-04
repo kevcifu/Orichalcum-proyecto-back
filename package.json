@@ -9,11 +9,12 @@
   "author": "kevcifu <kevin.cifuentes@medellin.edu.co>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "apollo-server-express": "^3.5.0",
     "express": "^4.17.1",
+    "graphql": "^15.7.2",
     "mongoose": "^6.0.14",
     "nodemon": "^2.0.15"
   },
