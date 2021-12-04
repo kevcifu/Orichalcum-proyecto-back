@@ -18,7 +18,7 @@ const userSchema = new Schema({
         required: true,
         unique: true,
     },
-    nombre: {
+    nombreCompleto: {
         type: String,
         required: true,
     },

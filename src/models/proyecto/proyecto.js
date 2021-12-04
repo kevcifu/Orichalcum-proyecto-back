@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
-const { UserModel } = require('../models/usuario');
+const { UserModel } = require('../usuario/usuario');
 
-const projectsSchema = new Schema({
+const projectSchema = new Schema({
     nombre: {
         type: String,
         required: true,
@@ -43,6 +43,6 @@ const projectsSchema = new Schema({
     },
 });
 
-const ProjectsModel = model('proyectos', projectsSchema);
+const ProjectModel = model('proyecto', projectSchema);
 
-module.exports = { ProjectsModel };
+module.exports = { ProjectModel };
