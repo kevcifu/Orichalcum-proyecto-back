@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose')
-const { ProjectsModel } = require('../models/proyectos')
+const { Schema, model } = require('mongoose');
+const { ProjectModel } = require('../proyecto/proyecto');
 const advanceSchema = new Schema({
     proyecto: {
         type: Schema.Types.ObjectId,
-        ref: ProjectsModel,
+        ref: ProjectModel,
         require: true
         
     },
