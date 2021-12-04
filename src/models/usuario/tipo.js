@@ -1,7 +1,7 @@
-const {gql} = require ('apollo-server-express');
+import { gql } from 'apollo-server-express';
 
-const tipoUsuario = gql `
-    type Usuario{
+const tipoUsuario = gql`
+    type Usuario {
         _id: ID!
         correo: String!
         identificacion: String!
@@ -11,18 +11,18 @@ const tipoUsuario = gql `
         estado: EstadoUsuario
     }
 
-    type Query{
+    type Query {
         Usuarios: [Usuario]
-        Usuario(_id:String!):Usuario
+        Usuario(_id: String!): Usuario
     }
 
-    type Mutation{
+    type Mutation {
         crearUsuario(
             correo: String!
             identificacion: String!
             nombreCompleto: String!
             password: String!
-            tipoUsuario: TipoUsuario! 
+            tipoUsuario: TipoUsuario!
             estado: EstadoUsuario
         ): Usuario
 
@@ -32,12 +32,12 @@ const tipoUsuario = gql `
             identificacion: String!
             nombreCompleto: String!
             password: String!
-            tipoUsuario: TipoUsuario! 
+            tipoUsuario: TipoUsuario!
             estado: EstadoUsuario
-         ): Usuario
+        ): Usuario
 
-         eliminarUsuario(_id: String!):Usuario
+        eliminarUsuario(_id: String!): Usuario
     }
 `;
 
-module.exports = {tipoUsuario};
+export { tipoUsuario };
