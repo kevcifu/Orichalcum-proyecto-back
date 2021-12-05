@@ -6,6 +6,7 @@ jspm_packages/
 .yarn-integrity
 .vscode-test
 package-lock.json
+.env
 # Historial local de Visual Studio Code
 .history/
 
