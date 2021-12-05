@@ -16,8 +16,8 @@ const inscriptionSchema = new Schema({
 
     estado: {
         type: String,
-        enum: ['NULO', 'INSCRITO'],
-        default: 'NULO'
+        enum: ['PENDIENTE', 'ACEPTADO', 'RECHAZADO'],
+        default: 'PENDIENTE'
     },
     
     fechaInscripcion: {

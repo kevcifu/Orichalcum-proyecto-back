@@ -4,7 +4,7 @@ const {InscriptionModel} = require('./models/inscripcion/inscripcion');
 const resolverUsuario = {
     Usuario:{
         inscripciones: async(parent,args,context)=>{
-            return InscriptionModel.find({estudiante:parent._id});
+            return InscriptionModel.findOne({estudiante:parent._id});
         },
     },
 
