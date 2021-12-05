@@ -1,5 +1,6 @@
-const { Schema, model } = require('mongoose');
-const { UserModel } = require('../usuario/usuario');
+import mongoose from 'mongoose';
+const { Schema, model } = mongoose;
+import { UserModel } from '../usuario/usuario.js';
 
 const projectSchema = new Schema({
     nombre: {
@@ -45,4 +46,4 @@ const projectSchema = new Schema({
 
 const ProjectModel = model('proyecto', projectSchema);
 
-module.exports = { ProjectModel };
+export { ProjectModel };

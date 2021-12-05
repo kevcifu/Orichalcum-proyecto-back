@@ -1,35 +1,35 @@
-const {gql} = require ('apollo-server-express');
+import { gql } from 'apollo-server-express';
 
-const tipoEnum = gql `
-    enum EstadoUsuario{
+const tipoEnum = gql`
+    enum EstadoUsuario {
         PENDIENTE
         AUTORIZADO
         NO_AUTORIZADO
     }
 
-    enum TipoUsuario{
+    enum TipoUsuario {
         ESTUDIANTE
         LIDER
         ADMINISTRADOR
     }
 
-    enum EstadoProyecto{
+    enum EstadoProyecto {
         ACTIVO
         INACTIVO
     }
 
-    enum Fase{
+    enum Fase {
         INICIADO
         DESARROLLO
         TERMINADO
         NULO
     }
 
-    enum EstadoInscripcion{
+    enum EstadoInscripcion {
         ACEPTADO
         RECHAZADO
         PENDIENTE
     }
 `;
 
-module.exports = {tipoEnum};
+export { tipoEnum };

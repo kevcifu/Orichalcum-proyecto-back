@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { ApolloServer } from 'apollo-server-express';
 import { conectarBD } from './db/db.js';
+
 import { validarToken } from './token/token';
 import { TypeInfo } from 'graphql';
 
