@@ -1,4 +1,4 @@
-import { bcrypt } from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const encriptar = async(textoPlano) =>{
     const encriptado = await bcrypt.hash(textoPlano, 10)

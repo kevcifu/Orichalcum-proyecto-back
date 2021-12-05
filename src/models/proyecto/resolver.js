@@ -31,7 +31,6 @@ const resolverProyecto = {
                 objetivoEspecifico: args.objetivoEspecifico,
                 presupuesto: args.presupuesto,
                 fechaInicial: args.fechaInicial,
-                fechaFinal: args.fechaFinal,
                 lider: args.lider,
             });
             return proyectoCreado;

@@ -1,6 +1,6 @@
-import { UserModel } from './UserModel';
-import { encriptar, comparar } from '../../helper';
-import { generarToken } from '../../token/token';
+import { UserModel } from '../../models/usuario/usuario.js';
+import { encriptar, comparar } from '../../helper/encriptar.js';
+import { generarToken } from '../../token/token.js';
 
 const resolverAutenticacion = {
     Mutation: {

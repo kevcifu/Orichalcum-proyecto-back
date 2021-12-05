@@ -1,11 +1,10 @@
-const {gql} = require ('apollo-server-express');
-const {tipoEnum} = require('../enum/tipo');
+import { gql } from 'apollo-server-express';
 
-const tipoInscripcion = gql `
-    type Inscripcion{
+const tipoInscripcion = gql`
+    type Inscripcion {
         _id: ID!
         proyecto: Proyecto!
-        estudiante: Estudiante!
+        estudiante: Usuario!
         estado: EstadoInscripcion!
         fechaInscripcion: Date!
         fechaEgreso: Date
@@ -26,4 +25,4 @@ const tipoInscripcion = gql `
     }
 `;
 
-module.exports = {tipoInscripcion};
+export { tipoInscripcion };

@@ -20,7 +20,7 @@ const tipoProyecto = gql`
         objetivoEspecifico: String!
         presupuesto: Float!
         fechaInicial: Date!
-        fechaFinal: Date!
+        fechaFinal: Date
         estado: EstadoProyecto!
         fase: Fase!
         lider: Usuario!
