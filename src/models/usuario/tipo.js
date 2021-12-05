@@ -9,6 +9,7 @@ const tipoUsuario = gql`
         password: String!
         tipoUsuario: TipoUsuario!
         estado: EstadoUsuario
+        inscripciones: [Inscripcion]
     }
 
     type Query {

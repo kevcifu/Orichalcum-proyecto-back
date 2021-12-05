@@ -18,8 +18,8 @@ const tipoAutenticacion = gql`
 
         login(correo: String!, password: String!): Token
 
-        refreshToken: Token
+        refrescarToken: Token
     }
 `;
 
-export {tipoAutenticacion};
+export { tipoAutenticacion };

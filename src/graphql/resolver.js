@@ -10,5 +10,4 @@ export const resolvers = [
     resolverInscripcion,
     resolverAvance,
     resolverAutenticacion,
-    
 ];
