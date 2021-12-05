@@ -1,10 +1,12 @@
 #directorios de dependencias
+yarn.lock
 node_modules/
 .ntvs_analysis.dat
 jspm_packages/
 .yarn-integrity
 .vscode-test
 package-lock.json
+.env
 # Historial local de Visual Studio Code
 .history/
 
