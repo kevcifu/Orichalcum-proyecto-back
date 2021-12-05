@@ -1,6 +1,6 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
-const tipoAvance =gql `
+const tipoAvance = gql`
     type Avance { 
         _id: ID!
         proyecto: Proyecto!
@@ -17,8 +17,8 @@ const tipoAvance =gql `
             proyecto: Proyecto!
             fecha: Date!
             descripcion: String!
-        )
+        ): Avance
     }
 `;
 
-export {tipoAvance};
+export { tipoAvance };

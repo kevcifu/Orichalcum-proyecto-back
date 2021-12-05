@@ -1,19 +1,21 @@
-import {AdvanceModel} from './avance.js';
+import { AdvanceModel } from './avance.js';
 
 const resolverAvance = {
     Query: {
-        Avances: async(parent, args)=>{
-            const avances= await AdvanceModel.find().populate('proyecto');
+        Avances: async (parent, args) => {
+            const avances = await AdvanceModel.find().populate('proyecto');
             return avances;
         },
-        Avance: async(parent, args)=>{
-            const avance= await AdvanceModel.find({proyecto:args._id}).populate('proyecto');
+        Avance: async (parent, args) => {
+            const avance = await AdvanceModel.find({
+                proyecto: args._id,
+            }).populate('proyecto');
             return avance;
         },
     },
-    Mutation:{
-        crearAvance: async(parent, args)=>{
-            const avanceCreado= AdvanceModel.create({
+    Mutation: {
+        crearAvance: async (parent, args) => {
+            const avanceCreado = AdvanceModel.create({
                 proyecto: args.proyecto,
                 fecha: args.fecha,
                 descripcion: args.descripcion,
@@ -22,4 +24,4 @@ const resolverAvance = {
         },
     },
 };
-export {resolverAvance};
+export { resolverAvance };
