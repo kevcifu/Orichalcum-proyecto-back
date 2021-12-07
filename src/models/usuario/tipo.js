@@ -29,11 +29,11 @@ const tipoUsuario = gql`
 
         editarUsuario(
             _id: String!
-            correo: String!
-            identificacion: String!
-            nombreCompleto: String!
-            password: String!
-            tipoUsuario: TipoUsuario!
+            correo: String
+            identificacion: String
+            nombreCompleto: String
+            password: String
+            tipoUsuario: TipoUsuario
             estado: EstadoUsuario
         ): Usuario
 

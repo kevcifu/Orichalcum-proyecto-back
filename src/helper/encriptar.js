@@ -1,12 +1,13 @@
 import bcrypt from 'bcryptjs';
+import { UserModel } from '../models/usuario/usuario.js';
 
-const encriptar = async(textoPlano) =>{
-    const encriptado = await bcrypt.hash(textoPlano, 10)
+const encriptar = async (textPlain) => {
+    const encriptado = await bcrypt.hash(UserModel.password, 10);
     return encriptado;
-}
+};
 
-const comparar = async(passwordPlano, passwordEncriptado) =>{
-    return await bcrypt.compare(passwordPlano, passwordEncriptado)
-}
+const comparar = async (passwordPlano, passwordEncriptado) => {
+    return await bcrypt.compare(passwordPlano, passwordEncriptado);
+};
 
-export {encriptar, comparar};
+export { encriptar, comparar };

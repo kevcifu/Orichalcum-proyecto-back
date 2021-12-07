@@ -19,7 +19,7 @@ const tipoProyecto = gql`
         objetivoGeneral: String!
         objetivoEspecifico: String!
         presupuesto: Float!
-        fechaInicial: Date!
+        fechaInicial: Date
         fechaFinal: Date
         estado: EstadoProyecto!
         fase: Fase!
@@ -33,13 +33,13 @@ const tipoProyecto = gql`
 
     type Mutation {
         crearProyecto(
-            nombre: String
-            objetivoGeneral: String
-            objetivoEspecifico: String
-            presupuesto: Float
+            nombre: String!
+            objetivoGeneral: String!
+            objetivoEspecifico: String!
+            presupuesto: Float!
             fechaInicial: Date
             fechaFinal: Date
-            lider: String
+            lider: String!
         ): Proyecto
 
         editarProyecto(_id: String!, campos: camposProyecto): Proyecto
