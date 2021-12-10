@@ -1,0 +1,30 @@
+#directorios de dependencias
+yarn.lock
+node_modules/
+.ntvs_analysis.dat
+jspm_packages/
+.yarn-integrity
+.vscode-test
+package-lock.json
+.env
+# Historial local de Visual Studio Code
+.history/
+
+# Datos-Usuarios 
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Reportes de diagnóstico 
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
