@@ -1,10 +1,10 @@
 import { UserModel } from '../../models/usuario/usuario.js';
-import  bcrypt  from 'bcrypt';
+import bcrypt from 'bcrypt';
 import { generarToken } from '../../token/token.js';
 
 const resolverAutenticacion = {
     Mutation: {
-        registro: async (parent, args) =>{
+        registro: async (parent, args) => {
             const salt = await bcrypt.genSalt(10);
             const hashPassword = await bcrypt.hash(args.password, salt);
             const usuarioCreado = await UserModel.create({
@@ -29,14 +29,13 @@ const resolverAutenticacion = {
             const passwordUsuario = await UserModel.password;
             const passEncriptado = await comparar(password, UserModel.password);
             const usuarioIngresado = await UserModel.findOne({
-                    token: generarToken({
-                        _id: usuarioIngresado._id,
-                        identificacion: usuarioIngresado.identificacion,
-                        nombreCompleto: usuarioIngresado.nombreCompleto,
-                        tipoUsuario: usuarioIngresado.tipoUsuario,
-                    }),
-                });
-            },
+                token: generarToken({
+                    _id: usuarioIngresado._id,
+                    identificacion: usuarioIngresado.identificacion,
+                    nombreCompleto: usuarioIngresado.nombreCompleto,
+                    tipoUsuario: usuarioIngresado.tipoUsuario,
+                }),
+            });
         },
 
         refrescarToken: async (parent, args, context) => {
@@ -56,6 +55,7 @@ const resolverAutenticacion = {
                 };
             } //validar que el contexto tenga la información del usuario. Si no devolver null para que el front redirija al login
         },
-},
+    },
+};
 
 export { resolverAutenticacion };

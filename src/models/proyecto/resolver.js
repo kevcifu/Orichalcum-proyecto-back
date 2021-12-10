@@ -36,7 +36,7 @@ const resolverProyecto = {
             return proyectoCreado;
         },
         editarProyecto: async (parent, args, context) => {
-            const proyectoEditado = await ProjectModel.findOneAndUpdate(
+            const proyectoEditado = await ProjectModel.findByIdAndUpdate(
                 args._id,
                 { ...args.campos },
                 { new: true }
