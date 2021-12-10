@@ -1,17 +1,18 @@
 import { UserModel } from '../../models/usuario/usuario.js';
-import { encriptar, comparar } from '../../helper/encriptar.js';
+import  bcrypt  from 'bcrypt';
 import { generarToken } from '../../token/token.js';
 
 const resolverAutenticacion = {
     Mutation: {
         registro: async (parent, args) =>{
-            const passwordEncriptado = await encriptar(password)
+            const salt = await bcrypt.genSalt(10);
+            const hashPassword = await bcrypt.hash(args.password, salt);
             const usuarioCreado = await UserModel.create({
                 correo: args.correo,
                 identificacion: args.identificacion,
                 nombreCompleto: args.nombreCompleto,
-                password: passwordEncriptado,
-                tipoUsuario: args.tipoUsuario
+                password: hashPassword,
+                tipoUsuario: args.tipoUsuario,
             });
             return {
                 token: generarToken({
@@ -26,9 +27,8 @@ const resolverAutenticacion = {
         },
 
         login: async (parent, args) => {
-            const passEncriptado = await comparar()
             const usuarioIngresado = await UserModel.findOne({correo: args.correo});
-            if (await comparar(args.password,passEncriptado)) {
+            if (await bcrypt.compare(args.password, usuarioIngresado.password)) {
                 return {
                     token: generarToken({
                         _id: usuarioIngresado._id,
