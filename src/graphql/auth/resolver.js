@@ -26,16 +26,22 @@ const resolverAutenticacion = {
         },
 
         login: async (parent, args) => {
-            const passwordUsuario = await UserModel.password;
-            const passEncriptado = await comparar(password, UserModel.password);
             const usuarioIngresado = await UserModel.findOne({
-                token: generarToken({
-                    _id: usuarioIngresado._id,
-                    identificacion: usuarioIngresado.identificacion,
-                    nombreCompleto: usuarioIngresado.nombreCompleto,
-                    tipoUsuario: usuarioIngresado.tipoUsuario,
-                }),
+                correo: args.correo,
             });
+            if (
+                await bcrypt.compare(args.password, usuarioIngresado.password)
+            ) {
+                return {
+                    token: generarToken({
+                        _id: usuarioIngresado._id,
+                        correo: usuarioIngresado.correo,
+                        identificacion: usuarioIngresado.identificacion,
+                        nombreCompleto: usuarioIngresado.nombreCompleto,
+                        tipoUsuario: usuarioIngresado.tipoUsuario,
+                    }),
+                };
+            }
         },
 
         refrescarToken: async (parent, args, context) => {
