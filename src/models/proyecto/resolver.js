@@ -6,7 +6,7 @@ const resolverProyecto = {
     Proyecto: {
         lider: async (parent, args, context) => {
             const user = await UserModel.findOne({
-                _id: parent.lider.toString(),
+                _id: parent.lider,
             });
             return user;
         },
@@ -36,7 +36,7 @@ const resolverProyecto = {
             return proyectoCreado;
         },
         editarProyecto: async (parent, args, context) => {
-            const proyectoEditado = await ProjectModel.findOneAndUpdate(
+            const proyectoEditado = await ProjectModel.findByIdAndUpdate(
                 args._id,
                 { ...args.campos },
                 { new: true }

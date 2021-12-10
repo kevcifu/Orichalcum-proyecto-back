@@ -1,10 +1,10 @@
 import { UserModel } from '../../models/usuario/usuario.js';
-import  bcrypt  from 'bcrypt';
+import bcrypt from 'bcrypt';
 import { generarToken } from '../../token/token.js';
 
 const resolverAutenticacion = {
     Mutation: {
-        registro: async (parent, args) =>{
+        registro: async (parent, args) => {
             const salt = await bcrypt.genSalt(10);
             const hashPassword = await bcrypt.hash(args.password, salt);
             const usuarioCreado = await UserModel.create({
@@ -23,43 +23,45 @@ const resolverAutenticacion = {
                     tipoUsuario: usuarioCreado.tipoUsuario,
                 }),
             };
-
         },
 
         login: async (parent, args) => {
-            const usuarioIngresado = await UserModel.findOne({correo: args.correo});
-            if (await bcrypt.compare(args.password, usuarioIngresado.password)) {
+            const usuarioIngresado = await UserModel.findOne({
+                correo: args.correo,
+            });
+            if (
+                await bcrypt.compare(args.password, usuarioIngresado.password)
+            ) {
                 return {
                     token: generarToken({
                         _id: usuarioIngresado._id,
                         correo: usuarioIngresado.correo,
                         identificacion: usuarioIngresado.identificacion,
                         nombreCompleto: usuarioIngresado.nombreCompleto,
-                        tipoUsuario: usuarioIngresado.tipoUsuario
+                        tipoUsuario: usuarioIngresado.tipoUsuario,
                     }),
                 };
             }
         },
 
-        refrescarToken: async (parent, args, context) =>{
+        refrescarToken: async (parent, args, context) => {
             if (!context.datosUsuario) {
-                return{
+                return {
                     error: 'token no valido',
                 };
-            }else {
-                return{
+            } else {
+                return {
                     token: generarToken({
                         _id: context.datosUsuario._id,
                         correo: context.datosUsuario.correo,
                         identificacion: context.datosUsuario.identificacion,
                         nombreCompleto: context.datosUsuario.nombreCompleto,
-                        tipoUsuario: context.datosUsuario.tipoUsuario
+                        tipoUsuario: context.datosUsuario.tipoUsuario,
                     }),
                 };
             } //validar que el contexto tenga la información del usuario. Si no devolver null para que el front redirija al login
-        
         },
     },
 };
 
-export {resolverAutenticacion};
+export { resolverAutenticacion };
