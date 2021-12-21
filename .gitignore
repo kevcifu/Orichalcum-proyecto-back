@@ -1,7 +1,7 @@
 #directorios de dependencias
-yarn.lock
 node_modules/
 .ntvs_analysis.dat
+yarn.lock
 jspm_packages/
 .yarn-integrity
 .vscode-test
