@@ -9,8 +9,11 @@
     "author": "kevcifu <kevin.cifuentes@medellin.edu.co>",
     "license": "MIT",
     "scripts": {
-        "start": "node src/index.js",
-        "dev": "nodemon src/index.js"
+        "start": "node src/index.js"
+    },
+    "engines": {
+        "node": "14.18.0",
+        "yarn": "1.22.17"
     },
     "dependencies": {
         "apollo-server-express": "^3.5.0",
